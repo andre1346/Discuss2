@@ -41,3 +41,5 @@ config :discuss2, Discuss2.Repo,
   database: "discuss2",
   hostname: "localhost",
   pool_size: 10
+
+
