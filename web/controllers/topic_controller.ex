@@ -44,7 +44,15 @@ defmodule Discuss2.TopicController do
   			{:error, changeset}->
   				render conn, "edit.html", changeset: changeset, topic: old_topic
   		
-  		end
+  	  end
+  	end
+
+  	def delete(conn, %{"id"=>topic_id}) do
+  		Repo.get!(Topic, topic_id) |>Repo.delete!
+
+  		conn
+  		|> put_flash(:info, "BRAVO EFFACE")
+  		|>redirect(to: topic_path(conn, :index))
   	end
 
   end  
